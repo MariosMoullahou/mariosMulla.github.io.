@@ -6,32 +6,97 @@
   <title>Meston</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
-    /* Custom styling */
+    /* Base styling */
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+
+    /* Hero Section */
     .hero {
       background: url('images/hero.jpg') no-repeat center center;
       background-size: cover;
       color: white;
       text-align: center;
-      padding: 6rem 1rem;
+      padding: 8rem 1rem;
+      position: relative;
     }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn-hero {
+      padding: 0.8rem 2rem;
+      font-size: 1.1rem;
+      border-radius: 50px;
+    }
+
+    /* Product Cards */
+    .product-card {
+      transition: transform 0.3s, box-shadow 0.3s;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
     .product-card img {
       height: 200px;
       object-fit: cover;
+      transition: transform 0.3s;
     }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .product-card:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Footer */
     footer {
       background-color: #343a40;
       color: white;
-      padding: 2rem 0;
+      padding: 3rem 0;
+    }
+
+    footer a {
+      color: #ffc107;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
     <div class="container">
-      <a class="navbar-brand" href="#">Meston</a>
+      <a class="navbar-brand fw-bold" href="#">Meston</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -45,12 +110,20 @@
     </div>
   </nav>
 
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Discover Your Perfect Style</h1>
+      <p>High-quality handmade products crafted just for you.</p>
+      <a href="#products" class="btn btn-warning btn-hero fw-bold">Shop Now</a>
+    </div>
+  </section>
+
   <!-- Products Section -->
   <section id="products" class="py-5">
     <div class="container">
-      <h2 class="text-center mb-5">Our Products</h2>
+      <h2 class="text-center mb-5 fw-bold">Our Products</h2>
       <div class="row g-4">
-        
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="card product-card">
             <img src="https://cdn.pixabay.com/photo/2016/11/23/18/12/bag-1854148_1280.jpg" class="card-img-top" alt="Product 1">
@@ -61,7 +134,6 @@
             </div>
           </div>
         </div>
-
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="card product-card">
             <img src="https://www.craftpassion.com/wp-content/uploads/drawstring-crochet-bag-pattern-720x720.jpg" class="card-img-top" alt="Product 2">
@@ -72,7 +144,6 @@
             </div>
           </div>
         </div>
-
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="card product-card">
             <img src="https://craftedbycat.com/cdn/shop/files/ec50883d-il_fullxfull.6670010688_d051.jpg?v=1742297881&width=1946" class="card-img-top" alt="Product 3">
@@ -83,7 +154,6 @@
             </div>
           </div>
         </div>
-
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="card product-card">
             <img src="https://m.media-amazon.com/images/I/91XRHJDVHzL._AC_UY900_.jpg" class="card-img-top" alt="Product 4">
@@ -94,7 +164,6 @@
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -102,7 +171,7 @@
   <!-- Contact Section -->
   <section id="contact" class="py-5 bg-light">
     <div class="container">
-      <h2 class="text-center mb-4">Contact Us</h2>
+      <h2 class="text-center mb-4 fw-bold">Contact Us</h2>
       <form class="mx-auto" style="max-width: 600px;">
         <div class="mb-3">
           <label for="name" class="form-label">Name</label>
@@ -116,7 +185,7 @@
           <label for="message" class="form-label">Message</label>
           <textarea class="form-control" id="message" rows="4" placeholder="Your message..."></textarea>
         </div>
-        <button type="submit" class="btn btn-primary w-100">Send Message</button>
+        <button type="submit" class="btn btn-primary w-100 fw-bold">Send Message</button>
       </form>
     </div>
   </section>
@@ -124,7 +193,11 @@
   <!-- Footer -->
   <footer class="text-center">
     <div class="container">
-      <p>&copy; 2025 My Bootstrap eShop. All rights reserved.</p>
+      <p>&copy; 2025 Meston. All rights reserved.</p>
+      <p>
+        <a href="#">Privacy Policy</a> | 
+        <a href="#">Terms of Service</a>
+      </p>
     </div>
   </footer>
 
