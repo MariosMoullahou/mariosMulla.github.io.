@@ -5,122 +5,163 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My eShop</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+        /* Reset some default styles */
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
-        header {
-            background-color: #222;
-            color: white;
-            padding: 1rem 2rem;
-            text-align: center;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
         }
 
-        h1 {
-            margin: 0;
+        header {
+            background-color: #343a40;
+            color: white;
+            padding: 1.5rem 2rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        header h1 {
+            font-size: 2rem;
         }
 
         main {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 2rem auto;
-            padding: 1rem;
+            padding: 0 1rem;
         }
 
         .products {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
         }
 
-        .product {
+        .product-card {
             background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 0 8px rgba(0,0,0,0.1);
-            width: 200px;
-            text-align: center;
-            padding: 1rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
-        .product img {
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .product-card img {
             width: 100%;
-            height: auto;
-            border-radius: 8px;
+            height: 180px;
+            object-fit: cover;
         }
 
-        .product h3 {
-            margin: 0.5rem 0;
+        .product-details {
+            padding: 1rem;
+            text-align: center;
         }
 
-        .product p {
-            color: #555;
+        .product-details h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #343a40;
         }
 
-        .product button {
-            background-color: #28a745;
+        .product-details p {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .product-details button {
+            background-color: #007bff;
             color: white;
             border: none;
             padding: 0.5rem 1rem;
-            border-radius: 4px;
+            border-radius: 5px;
             cursor: pointer;
-            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            transition: background-color 0.2s;
         }
 
-        .product button:hover {
-            background-color: #218838;
+        .product-details button:hover {
+            background-color: #0056b3;
         }
 
         footer {
-            background-color: #222;
+            background-color: #343a40;
             color: white;
             text-align: center;
-            padding: 1rem;
+            padding: 1.5rem 2rem;
             margin-top: 2rem;
+        }
+
+        /* Responsive adjustments */
+        @media(max-width: 600px){
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            .product-card img {
+                height: 150px;
+            }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>My eShop</h1>
+        <h1>My Modern eShop</h1>
     </header>
 
     <main>
         <section class="products">
-            <div class="product">
+            <div class="product-card">
                 <img src="images/product1.jpg" alt="Product 1">
-                <h3>Product 1</h3>
-                <p>$19.99</p>
-                <button>Add to Cart</button>
+                <div class="product-details">
+                    <h3>Product 1</h3>
+                    <p>$19.99</p>
+                    <button>Add to Cart</button>
+                </div>
             </div>
 
-            <div class="product">
+            <div class="product-card">
                 <img src="images/product2.jpg" alt="Product 2">
-                <h3>Product 2</h3>
-                <p>$29.99</p>
-                <button>Add to Cart</button>
+                <div class="product-details">
+                    <h3>Product 2</h3>
+                    <p>$29.99</p>
+                    <button>Add to Cart</button>
+                </div>
             </div>
 
-            <div class="product">
+            <div class="product-card">
                 <img src="images/product3.jpg" alt="Product 3">
-                <h3>Product 3</h3>
-                <p>$39.99</p>
-                <button>Add to Cart</button>
+                <div class="product-details">
+                    <h3>Product 3</h3>
+                    <p>$39.99</p>
+                    <button>Add to Cart</button>
+                </div>
             </div>
 
-            <div class="product">
+            <div class="product-card">
                 <img src="images/product4.jpg" alt="Product 4">
-                <h3>Product 4</h3>
-                <p>$49.99</p>
-                <button>Add to Cart</button>
+                <div class="product-details">
+                    <h3>Product 4</h3>
+                    <p>$49.99</p>
+                    <button>Add to Cart</button>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 My eShop. All rights reserved.</p>
+        <p>&copy; 2025 My Modern eShop. All rights reserved.</p>
     </footer>
 
 </body>
